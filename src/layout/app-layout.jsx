@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { Outlet } from "react-router-dom";
 
 const AppLayout = () => {
@@ -5,6 +6,7 @@ const AppLayout = () => {
     <div>
         <main className="min-h-screen container">
             {/* <header></header> */}
+            <Header />
             <Outlet />
         </main>
 
