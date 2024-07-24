@@ -40,7 +40,6 @@ const Login = () => {
   const { fetchUser } = UrlState();
 
   useEffect(() => {
-    console.log('data', data);
     if (error === null && data) {
       fetchUser();
       navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
