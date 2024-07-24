@@ -1,4 +1,3 @@
-import React from "react";
 import { Input } from "./ui/input";
 import {
   Card,
@@ -16,6 +15,7 @@ import { BeatLoader } from "react-spinners";
 import Error from "./error";
 import useFetch from "@/hooks/use-fetch";
 import { login } from "@/db/apiAuth";
+import { UrlState } from "@/context";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,12 +36,13 @@ const Login = () => {
     }));
   };
 
-  const {loading, error, fn: fnLogin, data} = useFetch(login, formData);
+  const { loading, error, fn: fnLogin, data } = useFetch(login, formData);
+  const { fetchUser } = UrlState();
 
   useEffect(() => {
     console.log('data', data);
     if (error === null && data) {
-      // fetchUser();
+      fetchUser();
       navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
