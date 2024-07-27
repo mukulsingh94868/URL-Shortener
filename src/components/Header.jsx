@@ -21,8 +21,6 @@ const Header = () => {
 
   const { user, fetchUser } = UrlState();
 
-  console.log('user', user);
-
   return (
     <>
       <nav className="py-4 flex justify-between items-center">
